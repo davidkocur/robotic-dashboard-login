@@ -1,0 +1,18 @@
+.spinner_base {
+  animation: spinner_anim 0.8s cubic-bezier(0.37, 0, 0.63, 1) infinite;
+}
+.spinner_offset_1 {
+  animation-delay: -0.65s;
+}
+.spinner_offset_2 {
+  animation-delay: -0.5s;
+}
+@keyframes spinner_anim {
+  93.75%,
+  100% {
+    r: 3px;
+  }
+  46.875% {
+    r: 0.2px;
+  }
+}

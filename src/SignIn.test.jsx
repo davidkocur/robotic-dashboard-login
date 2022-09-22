@@ -2,12 +2,12 @@ import { act, fireEvent, render, waitFor } from "@testing-library/react";
 import { describe, expect, test, vi } from "vitest";
 import SignIn from "./SignIn";
 
-describe("email & password validation tests", () => {
+describe("User sign-in process tests", () => {
   afterEach(() => {
     vi.restoreAllMocks();
   });
 
-  test("should contain email & password", () => {
+  test("should render email & password", () => {
     const signIn = render(<SignIn />);
     const emailNode = signIn.getByLabelText(/Email/i);
     const passwordNode = signIn.getByLabelText(/Password/i);
@@ -15,7 +15,7 @@ describe("email & password validation tests", () => {
     expect(passwordNode).toBeInTheDocument();
   });
 
-  test("should validate corretly", async () => {
+  test("should validate textfields corretly", async () => {
     let signIn;
     act(() => (signIn = render(<SignIn />)));
     const { getByLabelText } = signIn;
@@ -48,7 +48,7 @@ describe("email & password validation tests", () => {
 
   beforeEach;
 
-  test("should prevent or allow submit", async () => {
+  test("should prevent or allow form submit & should render alert dialog", async () => {
     const { getByTestId, getByLabelText, findByTestId, getByDisplayValue } = render(<SignIn />);
 
     const theForm = getByTestId("sign-in-form");

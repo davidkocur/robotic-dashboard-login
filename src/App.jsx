@@ -2,13 +2,12 @@ import Logo from "./Common/Logo";
 import SignIn from "./SignIn";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 axios.defaults.headers.post["Content-Type"] = "application/json";
 const mock = new MockAdapter(axios, { delayResponse: 1000 });
 
 mock.onPost("/api/signin").reply(async (config) => {
-  // console.log("SERVER:", config);
   return [
     200,
     {
@@ -38,21 +37,25 @@ function App() {
   }, [localStorage.getItem("auth-token")]);
 
   return (
-    <div className="container mx-auto">
-      {/* <header className="max-w-lg mx-auto px-5">
-        <Logo />
+    <div className="container mx-auto h-full">
+      {/* <header className="block mx-auto px-5 mb-5 text-center">
+        <h1 className="font-semibold text-lg tracking-wider uppercase text-brand-light">
+          Robotic System Dashboard
+        </h1>
       </header> */}
       <SignIn setFakeToken={setFakeToken} />
 
       <footer className="text-center">
         <p className="inline-flex items-center">
           <span className="text-sm text-gray-500 whitespace-nowrap">Powered by</span>
-          <Logo className="block h-8 m-4 ml-6 mt-6 font-bold text-lg text-black" />
+          <a href="https://www.photoneo.com/" target={"_blank"}>
+            <Logo className="block h-8 m-4 ml-6 mt-6 font-bold text-lg text-black" />
+          </a>
         </p>
       </footer>
 
       {fakeToken.token && (
-        <div className="block absolute bottom-0 left-0 w-full p-1 text-center">
+        <div className="block absolute bottom-0 left-0 w-full p-1 pr-4 text-right">
           <span className="text-xs text-gray-400 mr-4">
             Found token: <em>{fakeToken.token}</em>
           </span>

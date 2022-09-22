@@ -4,8 +4,17 @@
 
 @layer base {
   html,
-  body {
-    @apply h-full bg-secondary;
+  body,
+  #root {
+    @apply min-h-screen bg-secondary;
+  }
+
+  html {
+    @apply relative;
+  }
+
+  #root {
+    @apply pt-7 pb-5;
   }
 }
 

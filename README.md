@@ -4,7 +4,7 @@ This project was setup using [Vite](https://vitejs.dev/).
 
 ## Live Preview
 
-Live build of the application: SOON
+Live build of the application: pn-dashboard-login.netlify.app/
 
 ## Available Scripts
 

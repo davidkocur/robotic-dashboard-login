@@ -35,7 +35,6 @@ const SignIn = ({ setFakeToken }) => {
     axios
       .post("/api/signin", { email: form.email, password: form.password })
       .then((resp) => {
-        console.log("CLIENT:", resp.config);
         if (form.rememberMe) {
           const { Authorization, TokenExpires } = resp.headers;
           localStorage.setItem("auth-token", Authorization);
@@ -55,7 +54,7 @@ const SignIn = ({ setFakeToken }) => {
   };
 
   return (
-    <div className="relative max-w-sm mx-auto py-7 px-10 rounded-md bg-white shadow-lg">
+    <div className="relative max-w-sm w-full mx-auto py-7 px-10 rounded-md bg-white shadow-lg">
       <h4 className="font-bold text-gray-800 text-2xl text-center">Sign in</h4>
       <LoadingOverlay
         show={loading}
